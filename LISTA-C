@@ -1,0 +1,92 @@
+ ------------------------ 25 ------------------------
+
+#include <stdio.h>
+
+int main() { 
+    
+    float GF, GC;
+
+printf("Quantos graus Fahrenheit estas faznedo?\n\n");
+scanf("%f", &GF);
+
+GC = (GF - 32) * 5 / 9;
+
+printf("Sao exatos %f\n graus Celsius. \n", GC);
+
+return 0;
+}
+
+------------------------ 27 ------------------------
+
+#include <stdio.h>
+
+int main() { 
+    
+    float pr_p, p_in;
+
+printf("Qual o preço do produto?\n\n");
+scanf("%f", &pr_p);
+
+if (pr_p < 100) {
+    p_in = pr_p * 0.10 + pr_p;
+} else if (pr_p >= 100) {
+    p_in = pr_p * 0.20 + pr_p;
+};
+
+printf("preço inflacionado: %f.\n\n", p_in);
+
+return 0;
+}
+
+------------------------ 28 ------------------------
+
+#include <stdio.h>
+
+int main() { 
+    
+float total_gas, valor_f, parc_sem_j, parcela;
+int op, m_p;
+
+printf("Quanto você gastou? ");
+scanf("%f", &total_gas);
+
+printf("\nQual e a opção de pagamento?\n");
+printf("1 - A vista com 10%% de desconto\n");
+printf("2 - Em duas vezes\n");
+printf("3 - De 3 a 10 vezes com 3%% de juros ao mes (somente para compras acima de R$100,00)\n\n");
+
+scanf("%d", &op);
+
+if (op == 1) { 
+valor_f = total_gas * 0.90;
+printf("Valor com 10%% de desconto: R$ %.2f\n", valor_f);
+} 
+else if (op == 2) {
+parc_sem_j = total_gas / 2;
+printf("Parcelado em duas vezes: R$ %.2f (sem juros)\n", parc_sem_j);
+} 
+else if (op == 3) {
+if (total_gas <= 100.0) {
+printf("Parcelamento só permitido para compras acima de 100R$.\n");
+} else {
+printf("Digite o número de parcelas (so entre 3 e 10): ");
+scanf("%d", &m_p);
+
+if (m_p >= 3 && m_p <= 10) {
+valor_f = total_gas * (1 + 0.03 * m_p);
+parcela = valor_f / m_p;
+
+printf("Pagamento em %d vezes de R$ %.2f (com juros de 3%% ao mes).\n", m_p, parcela);
+
+printf("Valor final com juros: R$ %.2f\n", valor_f);
+} else {
+printf("Numero de parcelas nao disponivel (Escolha entre 3 e 10 vezes).\n");
+}
+}
+} 
+else {
+printf("Opçao inválida. Tente de novo.\n");
+}
+
+return 0;
+}
